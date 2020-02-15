@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="ljw4010" />
+<meta name="description" content="Personal blog." />
+<meta name="keywords" content="blog, tech" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.59.1" />
+
+<link rel="canonical" href="https://ljw4010.github.io/blog/wen_jian_suo/">
+<meta property="og:title" content="golang 的文件锁操作" />
+<meta property="og:description" content="golang 的文件锁操作 这篇文章给大家介绍一下 golang 的文件锁。我们在使用 golang 开发程序的时候，经常会出现多个 goroutine 操作同一个文件（或目录）的时候，如果不加锁，很容易导致文件中的数据混乱，于是，Flock 应运而生。
+Flock 是对于整个文件的建议性锁（不强求 goroutine 遵守），如果一个 goroutine 在文件上获取了锁，那么其他 goroutine 是可以知道的。默认情况下，当一个 goroutine 将文件锁住，另外一个 goroutine 可以直接操作被锁住的文件，原因在于 Flock 只是用于检测文件是否被加锁，针对文件已经被加锁，另一个 goroutine 写入数据的情况，内核不会阻止这个 goroutine 的写入操作，也就是建议性锁的内核处理策略。
+#函数
+import &quot;syscall&quot; func Flock(fd int, how int) (err error)  Flock 位于 syscall 包中，fd 参数指代文件描述符，how 参数指代锁的操作类型。
+how 主要的参数类型：
+LOCK_SH，共享锁，多个进程可以使用同一把锁，常被用作读共享锁； LOCK_EX，排他锁，同时只允许一个进程使用，常被用作写锁； LOCK_NB，遇到锁的表现，当采用排他锁的时候，默认 goroutine 会被阻塞等待锁被释放，采用 LOCK_NB 参数，可以让 goroutine 返回 Error; LOCK_UN，释放锁； 示例 下面的例子来自于 NSQ，位于 nsq/internal/dirlock，用于实现对目录的加锁
+// &#43;build !windows package dirlock import ( &quot;fmt&quot; &quot;os&quot; &quot;syscall&quot; ) // 定义一个 DirLock 的struct type DirLock struct { dir string // 目录路径，例如 /home/XXX/go/src f *os." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ljw4010.github.io/blog/wen_jian_suo/" />
+<meta property="article:published_time" content="2019-11-10T08:36:54+00:00" />
+<meta property="article:modified_time" content="2019-11-10T08:36:54+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="golang 的文件锁操作"/>
+<meta name="twitter:description" content="golang 的文件锁操作 这篇文章给大家介绍一下 golang 的文件锁。我们在使用 golang 开发程序的时候，经常会出现多个 goroutine 操作同一个文件（或目录）的时候，如果不加锁，很容易导致文件中的数据混乱，于是，Flock 应运而生。
+Flock 是对于整个文件的建议性锁（不强求 goroutine 遵守），如果一个 goroutine 在文件上获取了锁，那么其他 goroutine 是可以知道的。默认情况下，当一个 goroutine 将文件锁住，另外一个 goroutine 可以直接操作被锁住的文件，原因在于 Flock 只是用于检测文件是否被加锁，针对文件已经被加锁，另一个 goroutine 写入数据的情况，内核不会阻止这个 goroutine 的写入操作，也就是建议性锁的内核处理策略。
+#函数
+import &quot;syscall&quot; func Flock(fd int, how int) (err error)  Flock 位于 syscall 包中，fd 参数指代文件描述符，how 参数指代锁的操作类型。
+how 主要的参数类型：
+LOCK_SH，共享锁，多个进程可以使用同一把锁，常被用作读共享锁； LOCK_EX，排他锁，同时只允许一个进程使用，常被用作写锁； LOCK_NB，遇到锁的表现，当采用排他锁的时候，默认 goroutine 会被阻塞等待锁被释放，采用 LOCK_NB 参数，可以让 goroutine 返回 Error; LOCK_UN，释放锁； 示例 下面的例子来自于 NSQ，位于 nsq/internal/dirlock，用于实现对目录的加锁
+// &#43;build !windows package dirlock import ( &quot;fmt&quot; &quot;os&quot; &quot;syscall&quot; ) // 定义一个 DirLock 的struct type DirLock struct { dir string // 目录路径，例如 /home/XXX/go/src f *os."/>
+
+
+<meta itemprop="name" content="golang 的文件锁操作">
+<meta itemprop="description" content="golang 的文件锁操作 这篇文章给大家介绍一下 golang 的文件锁。我们在使用 golang 开发程序的时候，经常会出现多个 goroutine 操作同一个文件（或目录）的时候，如果不加锁，很容易导致文件中的数据混乱，于是，Flock 应运而生。
+Flock 是对于整个文件的建议性锁（不强求 goroutine 遵守），如果一个 goroutine 在文件上获取了锁，那么其他 goroutine 是可以知道的。默认情况下，当一个 goroutine 将文件锁住，另外一个 goroutine 可以直接操作被锁住的文件，原因在于 Flock 只是用于检测文件是否被加锁，针对文件已经被加锁，另一个 goroutine 写入数据的情况，内核不会阻止这个 goroutine 的写入操作，也就是建议性锁的内核处理策略。
+#函数
+import &quot;syscall&quot; func Flock(fd int, how int) (err error)  Flock 位于 syscall 包中，fd 参数指代文件描述符，how 参数指代锁的操作类型。
+how 主要的参数类型：
+LOCK_SH，共享锁，多个进程可以使用同一把锁，常被用作读共享锁； LOCK_EX，排他锁，同时只允许一个进程使用，常被用作写锁； LOCK_NB，遇到锁的表现，当采用排他锁的时候，默认 goroutine 会被阻塞等待锁被释放，采用 LOCK_NB 参数，可以让 goroutine 返回 Error; LOCK_UN，释放锁； 示例 下面的例子来自于 NSQ，位于 nsq/internal/dirlock，用于实现对目录的加锁
+// &#43;build !windows package dirlock import ( &quot;fmt&quot; &quot;os&quot; &quot;syscall&quot; ) // 定义一个 DirLock 的struct type DirLock struct { dir string // 目录路径，例如 /home/XXX/go/src f *os.">
+
+
+<meta itemprop="datePublished" content="2019-11-10T08:36:54&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-10T08:36:54&#43;00:00" />
+<meta itemprop="wordCount" content="191">
+
+
+
+<meta itemprop="keywords" content="" />
+
+
+<link rel="stylesheet" href="https://ljw4010.github.io/css/layout.css" />
+
+
+<link rel="stylesheet" href="https://ljw4010.github.io/css/default-dark.css" />
+
+
+
+
+<title>
+
+
+     golang 的文件锁操作 
+
+</title>
+
+</head>
+
+
+<body>
+<div class="main">
+<header>
+
+<div class="header-bar">
+
+  <nav>
+    <div class="siteTitle">
+      <a href="https://ljw4010.github.io/">生活需要沉淀</a>
+    </div> 
+
+    
+    
+    <a class="nav-item" href="https://ljw4010.github.io/blog/"><div class="nav-item-title">Posts</div></a>
+    
+    <a class="nav-item" href="https://ljw4010.github.io/tags/"><div class="nav-item-title">Tags</div></a>
+    
+
+  </nav>
+
+  
+<div class="social-links-header">
+
+  
+  <a href="mailto:ljw4010@sina.cn"><div class="social-link">email</div></a>
+  
+
+  
+  <a href="https://github.com/ljw4010" target="_blank"><div class="social-link">gh</div></a>
+  
+
+  
+
+  
+
+  
+
+</div>
+
+
+</div>
+
+
+</header>
+
+
+<article class="post">
+    <h1 class="title"> golang 的文件锁操作 </h1>
+    <div class="content"> 
+
+<h1 id="golang-的文件锁操作">golang 的文件锁操作</h1>
+
+<p>这篇文章给大家介绍一下 golang 的文件锁。我们在使用 golang 开发程序的时候，经常会出现多个 goroutine 操作同一个文件（或目录）的时候，如果不加锁，很容易导致文件中的数据混乱，于是，Flock 应运而生。</p>
+
+<p>Flock 是对于整个文件的建议性锁（不强求 goroutine 遵守），如果一个 goroutine 在文件上获取了锁，那么其他 goroutine 是可以知道的。默认情况下，当一个 goroutine 将文件锁住，另外一个 goroutine 可以直接操作被锁住的文件，原因在于 Flock 只是用于检测文件是否被加锁，针对文件已经被加锁，另一个 goroutine 写入数据的情况，内核不会阻止这个 goroutine 的写入操作，也就是建议性锁的内核处理策略。</p>
+
+<p>#函数</p>
+
+<pre><code>import &quot;syscall&quot;
+
+func Flock(fd int, how int) (err error)
+</code></pre>
+
+<p>Flock 位于 syscall 包中，fd 参数指代文件描述符，how 参数指代锁的操作类型。</p>
+
+<p>how 主要的参数类型：</p>
+
+<p>LOCK_SH，共享锁，多个进程可以使用同一把锁，常被用作读共享锁；
+LOCK_EX，排他锁，同时只允许一个进程使用，常被用作写锁；
+LOCK_NB，遇到锁的表现，当采用排他锁的时候，默认 goroutine 会被阻塞等待锁被释放，采用 LOCK_NB 参数，可以让 goroutine 返回 Error;
+LOCK_UN，释放锁；
+示例
+下面的例子来自于 NSQ，位于 nsq/internal/dirlock，用于实现对目录的加锁</p>
+
+<pre><code>// +build !windows
+
+package dirlock
+
+import (
+	&quot;fmt&quot;
+	&quot;os&quot;
+	&quot;syscall&quot;
+)
+
+// 定义一个 DirLock 的struct
+type DirLock struct {
+	dir string    // 目录路径，例如 /home/XXX/go/src
+	f   *os.File  // 文件描述符
+}
+
+// 新建一个 DirLock
+func New(dir string) *DirLock {
+	return &amp;DirLock{
+		dir: dir,
+	}
+}
+
+// 加锁操作
+func (l *DirLock) Lock() error {
+	f, err := os.Open(l.dir) // 获取文件描述符
+	if err != nil {
+		return err
+	}
+	l.f = f
+	err = syscall.Flock(int(f.Fd()), syscall.LOCK_EX|syscall.LOCK_NB) // 加上排他锁，当遇到文件加锁的情况直接返回 Error
+	if err != nil {
+		return fmt.Errorf(&quot;cannot flock directory %s - %s&quot;, l.dir, err)
+	}
+	return nil
+}
+
+// 解锁操作
+func (l *DirLock) Unlock() error {
+	defer l.f.Close() // close 掉文件描述符
+	return syscall.Flock(int(l.f.Fd()), syscall.LOCK_UN) // 释放 Flock 文件锁
+}
+</code></pre>
+
+<p>#总结
+Flock 是建议性的锁，使用的时候需要指定 how 参数，否则容易出现多个 goroutine 共用文件的问题
+how 参数指定 LOCK_NB 之后，goroutine 遇到已加锁的 Flock，不会阻塞，而是直接返回错误</p>
+
+<p>via　<a href="https://reading.developerlearning.cn/articles/2018-11-11-golang-file-lock/">Go 夜读</a></p>
+ </div>
+    <footer class="post-footer">
+
+  <div class="post-footer-data">
+            
+<div class="tags">
+  
+</div>
+
+    <div class="date"> 2019-11-10 </div>
+    
+  </div>
+</footer>
+
+
+
+</article>
+
+  <footer>
+
+  <div class="social-links-footer">
+
+  
+  <a href="mailto:ljw4010@sina.cn"><div class="social-link">Email</div></a>
+  
+
+  
+  <a href="https://github.com/ljw4010" target="_blank"><div class="social-link">GitHub</div></a>
+  
+
+  
+
+  
+
+  
+
+  <div class="social-link">
+  <a href="https://ljw4010.github.io/index.xml" target="_blank">RSS</a>
+  </div>
+
+</div>
+
+
+  <div class="copyright"> Copyright (c) 2020, all rights reserved. </div>
+
+  <div class="poweredby">
+    Powered by <a href="https://gohugo.io/">Hugo</a>.
+  </div>
+
+  </footer>
+
+</div> 
+
+</body>
+</html>
+
