@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 生活需要沉淀</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 24 Nov 2019 08:36:54 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 15 Feb 2020 16:01:23 +0800</lastBuildDate>
     
 	<atom:link href="https://ljw4010.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>go调度器学习</title>
+      <link>https://ljw4010.github.io/post/go_sync.html</link>
+      <pubDate>Sat, 15 Feb 2020 16:01:23 +0800</pubDate>
+      
+      <guid>https://ljw4010.github.io/post/go_sync.html</guid>
+      <description>#前沿 你的代码会被翻译成一系列机器指令，然后依次执行。为了实现这一点，操作系统使用线程（Thread）的概念。线程负责顺序执行分配给它的指令</description>
+    </item>
     
     <item>
       <title>读书</title>

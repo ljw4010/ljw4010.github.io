@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>调度器 on 生活需要沉淀</title>
+    <link>https://ljw4010.github.io/tags/%E8%B0%83%E5%BA%A6%E5%99%A8.html</link>
+    <description>Recent content in 调度器 on 生活需要沉淀</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 15 Feb 2020 16:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://ljw4010.github.io/tags/%E8%B0%83%E5%BA%A6%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>go调度器学习</title>
+      <link>https://ljw4010.github.io/post/go_sync.html</link>
+      <pubDate>Sat, 15 Feb 2020 16:01:23 +0800</pubDate>
+      
+      <guid>https://ljw4010.github.io/post/go_sync.html</guid>
+      <description>#前沿 你的代码会被翻译成一系列机器指令，然后依次执行。为了实现这一点，操作系统使用线程（Thread）的概念。线程负责顺序执行分配给它的指令</description>
+    </item>
+    
+  </channel>
+</rss>
