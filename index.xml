@@ -89,6 +89,8 @@ Go 协作式调度器的优点在于它看起来和感觉上都是抢占式的�
 &lt;li&gt;&lt;p&gt;同步和编配
 如果原子、互斥量或通道操作调用将导致 Goroutine 阻塞，调度器可以将之切换到一个新的 Goroutine 去运行。一旦 Goroutine 可以再次运行，它就可以重新排队，并最终在M上切换回来。&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;iframe src=&#34;//player.bilibili.com/player.html?aid=57251255&amp;cid=99964816&amp;page=1&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34;&gt; &lt;/iframe&gt;
 </description>
       
     </item>
