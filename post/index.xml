@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 生活需要沉淀</title>
+    <link>http://ljw4010.github.io/post/</link>
+    <description>Recent content in Posts on 生活需要沉淀</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 24 Nov 2019 08:36:54 +0000</lastBuildDate>
+    
+	<atom:link href="http://ljw4010.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>读书</title>
+      <link>http://ljw4010.github.io/post/du_shu/</link>
+      <pubDate>Sun, 24 Nov 2019 08:36:54 +0000</pubDate>
+      
+      <guid>http://ljw4010.github.io/post/du_shu/</guid>
+      <description>读书写字 工作这么久 看的都是技术的书 也没看透 也没尽头 静不下心 去看看外边的世界 生活枯燥 偶尔低头掠过那一束惊奇 突然又有了意义 这是文字的味道 这是纸张</description>
+    </item>
+    
+    <item>
+      <title>golang 的文件锁操作</title>
+      <link>http://ljw4010.github.io/post/wen_jian_suo/</link>
+      <pubDate>Sun, 10 Nov 2019 08:36:54 +0000</pubDate>
+      
+      <guid>http://ljw4010.github.io/post/wen_jian_suo/</guid>
+      <description>golang 的文件锁操作 这篇文章给大家介绍一下 golang 的文件锁。我们在使用 golang 开发程序的时候，经常会出现多个 goroutine 操作同一个文件（或目录）的时候，如果不加锁，很容</description>
+    </item>
+    
+    <item>
+      <title>隧道</title>
+      <link>http://ljw4010.github.io/post/sui_dao/</link>
+      <pubDate>Sat, 09 Nov 2019 08:36:54 -0700</pubDate>
+      
+      <guid>http://ljw4010.github.io/post/sui_dao/</guid>
+      <description>隧道 今天有人对我说，你休息吧。 我说，我……休息吧！ 我是应该静下来好好地休息了…… 我常常很仰慕那些写文章的的人，把文字演绎得淋漓尽致，无半点虚</description>
+    </item>
+    
+  </channel>
+</rss>
