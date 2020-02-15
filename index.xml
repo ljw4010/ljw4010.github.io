@@ -13,10 +13,10 @@
     
     <item>
       <title>读书</title>
-      <link>https://ljw4010.github.io/post/du_shu/</link>
+      <link>https://ljw4010.github.io/post/du_shu.html</link>
       <pubDate>Sun, 24 Nov 2019 08:36:54 +0000</pubDate>
       
-      <guid>https://ljw4010.github.io/post/du_shu/</guid>
+      <guid>https://ljw4010.github.io/post/du_shu.html</guid>
       
         <description>
 
@@ -53,10 +53,10 @@
     
     <item>
       <title>golang 的文件锁操作</title>
-      <link>https://ljw4010.github.io/post/wen_jian_suo/</link>
+      <link>https://ljw4010.github.io/post/wen_jian_suo.html</link>
       <pubDate>Sun, 10 Nov 2019 08:36:54 +0000</pubDate>
       
-      <guid>https://ljw4010.github.io/post/wen_jian_suo/</guid>
+      <guid>https://ljw4010.github.io/post/wen_jian_suo.html</guid>
       
         <description>
 
@@ -190,10 +190,10 @@ how 参数指定 LOCK_NB 之后，goroutine 遇到已加锁的 Flock，不会阻
     
     <item>
       <title>隧道</title>
-      <link>https://ljw4010.github.io/post/sui_dao/</link>
+      <link>https://ljw4010.github.io/post/sui_dao.html</link>
       <pubDate>Sat, 09 Nov 2019 08:36:54 -0700</pubDate>
       
-      <guid>https://ljw4010.github.io/post/sui_dao/</guid>
+      <guid>https://ljw4010.github.io/post/sui_dao.html</guid>
       
         <description>
 

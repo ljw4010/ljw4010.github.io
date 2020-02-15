@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://ljw4010.github.io/post/</loc>
+    <loc>https://ljw4010.github.io/post.html</loc>
     <lastmod>2019-11-24T08:36:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -16,46 +16,46 @@
   </url>
   
   <url>
-    <loc>https://ljw4010.github.io/post/du_shu/</loc>
+    <loc>https://ljw4010.github.io/post/du_shu.html</loc>
     <lastmod>2019-11-24T08:36:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://ljw4010.github.io/post/wen_jian_suo/</loc>
+    <loc>https://ljw4010.github.io/post/wen_jian_suo.html</loc>
     <lastmod>2019-11-10T08:36:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://ljw4010.github.io/post/sui_dao/</loc>
+    <loc>https://ljw4010.github.io/post/sui_dao.html</loc>
     <lastmod>2019-11-09T08:36:54-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://ljw4010.github.io/author/</loc>
+    <loc>https://ljw4010.github.io/author.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://ljw4010.github.io/categories/</loc>
+    <loc>https://ljw4010.github.io/categories.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://ljw4010.github.io/en/</loc>
+    <loc>https://ljw4010.github.io/en.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://ljw4010.github.io/tags/</loc>
+    <loc>https://ljw4010.github.io/tags.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
