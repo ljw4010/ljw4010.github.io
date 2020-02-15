@@ -1,3 +1,2 @@
 User-agent: *
-
-Sitemap: https://ljw4010.github.io/sitemap.xml
+Sitemap: http://ljw4010.github.io/sitemap.xml

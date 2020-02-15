@@ -2,13 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 生活需要沉淀</title>
-    <link>https://ljw4010.github.io/categories/</link>
+    <link>http://ljw4010.github.io/categories/</link>
     <description>Recent content in Categories on 生活需要沉淀</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <copyright>Copyright (c) 2020, all rights reserved.</copyright>
+    <language>en</language>
     
-	<atom:link href="https://ljw4010.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://ljw4010.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

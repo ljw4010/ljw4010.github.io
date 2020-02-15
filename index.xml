@@ -2,72 +2,183 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>生活需要沉淀</title>
-    <link>https://ljw4010.github.io/</link>
+    <link>http://ljw4010.github.io/</link>
     <description>Recent content on 生活需要沉淀</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <copyright>Copyright (c) 2020, all rights reserved.</copyright>
+    <language>en</language>
     <lastBuildDate>Sun, 24 Nov 2019 08:36:54 +0000</lastBuildDate>
     
-	<atom:link href="https://ljw4010.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://ljw4010.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>读书</title>
-      <link>https://ljw4010.github.io/blog/du_shu/</link>
+      <link>http://ljw4010.github.io/blog/du_shu/</link>
       <pubDate>Sun, 24 Nov 2019 08:36:54 +0000</pubDate>
       
-      <guid>https://ljw4010.github.io/blog/du_shu/</guid>
-      <description>读书写字 工作这么久
-看的都是技术的书
-也没看透
-也没尽头
-静不下心
-去看看外边的世界
-生活枯燥
-偶尔低头掠过那一束惊奇
-突然又有了意义
-这是文字的味道
-这是纸张翻开的味道
-就是那么的神奇</description>
+      <guid>http://ljw4010.github.io/blog/du_shu/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;读书写字&#34;&gt;读书写字&lt;/h1&gt;
+
+&lt;p&gt;工作这么久&lt;/p&gt;
+
+&lt;p&gt;看的都是技术的书&lt;/p&gt;
+
+&lt;p&gt;也没看透&lt;/p&gt;
+
+&lt;p&gt;也没尽头&lt;/p&gt;
+
+&lt;p&gt;静不下心&lt;/p&gt;
+
+&lt;p&gt;去看看外边的世界&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;生活枯燥&lt;/p&gt;
+
+&lt;p&gt;偶尔低头掠过那一束惊奇&lt;/p&gt;
+
+&lt;p&gt;突然又有了意义&lt;/p&gt;
+
+&lt;p&gt;这是文字的味道&lt;/p&gt;
+
+&lt;p&gt;这是纸张翻开的味道&lt;/p&gt;
+
+&lt;p&gt;就是那么的神奇&lt;/p&gt;
+</description>
+      
     </item>
     
     <item>
       <title>golang 的文件锁操作</title>
-      <link>https://ljw4010.github.io/blog/wen_jian_suo/</link>
+      <link>http://ljw4010.github.io/blog/wen_jian_suo/</link>
       <pubDate>Sun, 10 Nov 2019 08:36:54 +0000</pubDate>
       
-      <guid>https://ljw4010.github.io/blog/wen_jian_suo/</guid>
-      <description>golang 的文件锁操作 这篇文章给大家介绍一下 golang 的文件锁。我们在使用 golang 开发程序的时候，经常会出现多个 goroutine 操作同一个文件（或目录）的时候，如果不加锁，很容易导致文件中的数据混乱，于是，Flock 应运而生。
-Flock 是对于整个文件的建议性锁（不强求 goroutine 遵守），如果一个 goroutine 在文件上获取了锁，那么其他 goroutine 是可以知道的。默认情况下，当一个 goroutine 将文件锁住，另外一个 goroutine 可以直接操作被锁住的文件，原因在于 Flock 只是用于检测文件是否被加锁，针对文件已经被加锁，另一个 goroutine 写入数据的情况，内核不会阻止这个 goroutine 的写入操作，也就是建议性锁的内核处理策略。
-#函数
-import &amp;quot;syscall&amp;quot; func Flock(fd int, how int) (err error)  Flock 位于 syscall 包中，fd 参数指代文件描述符，how 参数指代锁的操作类型。
-how 主要的参数类型：
-LOCK_SH，共享锁，多个进程可以使用同一把锁，常被用作读共享锁； LOCK_EX，排他锁，同时只允许一个进程使用，常被用作写锁； LOCK_NB，遇到锁的表现，当采用排他锁的时候，默认 goroutine 会被阻塞等待锁被释放，采用 LOCK_NB 参数，可以让 goroutine 返回 Error; LOCK_UN，释放锁； 示例 下面的例子来自于 NSQ，位于 nsq/internal/dirlock，用于实现对目录的加锁
-// +build !windows package dirlock import ( &amp;quot;fmt&amp;quot; &amp;quot;os&amp;quot; &amp;quot;syscall&amp;quot; ) // 定义一个 DirLock 的struct type DirLock struct { dir string // 目录路径，例如 /home/XXX/go/src f *os.</description>
+      <guid>http://ljw4010.github.io/blog/wen_jian_suo/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;golang-的文件锁操作&#34;&gt;golang 的文件锁操作&lt;/h1&gt;
+
+&lt;p&gt;这篇文章给大家介绍一下 golang 的文件锁。我们在使用 golang 开发程序的时候，经常会出现多个 goroutine 操作同一个文件（或目录）的时候，如果不加锁，很容易导致文件中的数据混乱，于是，Flock 应运而生。&lt;/p&gt;
+
+&lt;p&gt;Flock 是对于整个文件的建议性锁（不强求 goroutine 遵守），如果一个 goroutine 在文件上获取了锁，那么其他 goroutine 是可以知道的。默认情况下，当一个 goroutine 将文件锁住，另外一个 goroutine 可以直接操作被锁住的文件，原因在于 Flock 只是用于检测文件是否被加锁，针对文件已经被加锁，另一个 goroutine 写入数据的情况，内核不会阻止这个 goroutine 的写入操作，也就是建议性锁的内核处理策略。&lt;/p&gt;
+
+&lt;p&gt;#函数&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import &amp;quot;syscall&amp;quot;
+
+func Flock(fd int, how int) (err error)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Flock 位于 syscall 包中，fd 参数指代文件描述符，how 参数指代锁的操作类型。&lt;/p&gt;
+
+&lt;p&gt;how 主要的参数类型：&lt;/p&gt;
+
+&lt;p&gt;LOCK_SH，共享锁，多个进程可以使用同一把锁，常被用作读共享锁；
+LOCK_EX，排他锁，同时只允许一个进程使用，常被用作写锁；
+LOCK_NB，遇到锁的表现，当采用排他锁的时候，默认 goroutine 会被阻塞等待锁被释放，采用 LOCK_NB 参数，可以让 goroutine 返回 Error;
+LOCK_UN，释放锁；
+示例
+下面的例子来自于 NSQ，位于 nsq/internal/dirlock，用于实现对目录的加锁&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// +build !windows
+
+package dirlock
+
+import (
+	&amp;quot;fmt&amp;quot;
+	&amp;quot;os&amp;quot;
+	&amp;quot;syscall&amp;quot;
+)
+
+// 定义一个 DirLock 的struct
+type DirLock struct {
+	dir string    // 目录路径，例如 /home/XXX/go/src
+	f   *os.File  // 文件描述符
+}
+
+// 新建一个 DirLock
+func New(dir string) *DirLock {
+	return &amp;amp;DirLock{
+		dir: dir,
+	}
+}
+
+// 加锁操作
+func (l *DirLock) Lock() error {
+	f, err := os.Open(l.dir) // 获取文件描述符
+	if err != nil {
+		return err
+	}
+	l.f = f
+	err = syscall.Flock(int(f.Fd()), syscall.LOCK_EX|syscall.LOCK_NB) // 加上排他锁，当遇到文件加锁的情况直接返回 Error
+	if err != nil {
+		return fmt.Errorf(&amp;quot;cannot flock directory %s - %s&amp;quot;, l.dir, err)
+	}
+	return nil
+}
+
+// 解锁操作
+func (l *DirLock) Unlock() error {
+	defer l.f.Close() // close 掉文件描述符
+	return syscall.Flock(int(l.f.Fd()), syscall.LOCK_UN) // 释放 Flock 文件锁
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;#总结
+Flock 是建议性的锁，使用的时候需要指定 how 参数，否则容易出现多个 goroutine 共用文件的问题
+how 参数指定 LOCK_NB 之后，goroutine 遇到已加锁的 Flock，不会阻塞，而是直接返回错误&lt;/p&gt;
+
+&lt;p&gt;via　&lt;a href=&#34;https://reading.developerlearning.cn/articles/2018-11-11-golang-file-lock/&#34;&gt;Go 夜读&lt;/a&gt;&lt;/p&gt;
+</description>
+      
     </item>
     
     <item>
       <title>隧道</title>
-      <link>https://ljw4010.github.io/blog/sui_dao/</link>
+      <link>http://ljw4010.github.io/blog/sui_dao/</link>
       <pubDate>Sat, 09 Nov 2019 08:36:54 -0700</pubDate>
       
-      <guid>https://ljw4010.github.io/blog/sui_dao/</guid>
-      <description>隧道 今天有人对我说，你休息吧。
-我说，我……休息吧！
-我是应该静下来好好地休息了……
-我常常很仰慕那些写文章的的人，把文字演绎得淋漓尽致，无半点虚夸。
-到希望自己能用零碎的语言，残缺的思路演绎一番半截灵魂。
-今晚挑灯去组织那些零碎的记忆，没有个源头，也没有个思路，不知从哪里说起。
-一切都埋藏在深邃的隧道里。从那时就注定这条隧道从山脚通向山顶，崎岖盘桓。而我只是行走在其中的人罢了。
-不能说暗无天日。毕竟，朦胧余光会略略的显现你的轮廓。
-你走在意境之中，只是看不到自己已经行走到了哪里。
-也许应该记得，起初的那一刻，我说，我来了。
-然后就模糊，一直的模糊。
-也许那时还下着晶莹剔透的皑皑白雪，我站在脚印里，仰望着雪魂的零落。
-直至有人把我从脚印里拔出，扔到隧道边缘。
-告诉我，说，你去吧。
-我说，我去了，必须要去了。</description>
+      <guid>http://ljw4010.github.io/blog/sui_dao/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;隧道&#34;&gt;隧道&lt;/h1&gt;
+
+&lt;p&gt;今天有人对我说，你休息吧。&lt;/p&gt;
+
+&lt;p&gt;我说，我……休息吧！&lt;/p&gt;
+
+&lt;p&gt;我是应该静下来好好地休息了……&lt;/p&gt;
+
+&lt;p&gt;我常常很仰慕那些写文章的的人，把文字演绎得淋漓尽致，无半点虚夸。&lt;/p&gt;
+
+&lt;p&gt;到希望自己能用零碎的语言，残缺的思路演绎一番半截灵魂。&lt;/p&gt;
+
+&lt;p&gt;今晚挑灯去组织那些零碎的记忆，没有个源头，也没有个思路，不知从哪里说起。&lt;/p&gt;
+
+&lt;p&gt;一切都埋藏在深邃的隧道里。从那时就注定这条隧道从山脚通向山顶，崎岖盘桓。而我只是行走在其中的人罢了。&lt;/p&gt;
+
+&lt;p&gt;不能说暗无天日。毕竟，朦胧余光会略略的显现你的轮廓。&lt;/p&gt;
+
+&lt;p&gt;你走在意境之中，只是看不到自己已经行走到了哪里。&lt;/p&gt;
+
+&lt;p&gt;也许应该记得，起初的那一刻，我说，我来了。&lt;/p&gt;
+
+&lt;p&gt;然后就模糊，一直的模糊。&lt;/p&gt;
+
+&lt;p&gt;也许那时还下着晶莹剔透的皑皑白雪，我站在脚印里，仰望着雪魂的零落。&lt;/p&gt;
+
+&lt;p&gt;直至有人把我从脚印里拔出，扔到隧道边缘。&lt;/p&gt;
+
+&lt;p&gt;告诉我，说，你去吧。&lt;/p&gt;
+
+&lt;p&gt;我说，我去了，必须要去了。&lt;/p&gt;
+</description>
+      
     </item>
     
   </channel>
