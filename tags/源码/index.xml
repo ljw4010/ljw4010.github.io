@@ -17,7 +17,7 @@
       <pubDate>Sat, 15 Feb 2020 16:01:23 +0800</pubDate>
       
       <guid>https://ljw4010.github.io/post/go_sync.html</guid>
-      <description>#前沿 你的代码会被翻译成一系列机器指令，然后依次执行。为了实现这一点，操作系统使用线程（Thread）的概念。线程负责顺序执行分配给它的指令</description>
+      <description>前沿 你的代码会被翻译成一系列机器指令，然后依次执行。为了实现这一点，操作系统使用线程（Thread）的概念。线程负责顺序执行分配给它的指令。</description>
     </item>
     
   </channel>
