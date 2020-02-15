@@ -1,49 +1,49 @@
-<?xml-stylesheet type="text/xsl" href="http://ljw4010.github.io/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://ljw4010.github.io/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://ljw4010.github.io/post/</loc>
+    <loc>https://ljw4010.github.io/post/</loc>
     <lastmod>2019-11-24T08:36:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://ljw4010.github.io/</loc>
+    <loc>https://ljw4010.github.io/</loc>
     <lastmod>2019-11-24T08:36:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://ljw4010.github.io/post/du_shu/</loc>
+    <loc>https://ljw4010.github.io/post/du_shu/</loc>
     <lastmod>2019-11-24T08:36:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://ljw4010.github.io/post/wen_jian_suo/</loc>
+    <loc>https://ljw4010.github.io/post/wen_jian_suo/</loc>
     <lastmod>2019-11-10T08:36:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://ljw4010.github.io/post/sui_dao/</loc>
+    <loc>https://ljw4010.github.io/post/sui_dao/</loc>
     <lastmod>2019-11-09T08:36:54-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://ljw4010.github.io/categories/</loc>
+    <loc>https://ljw4010.github.io/categories/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://ljw4010.github.io/tags/</loc>
+    <loc>https://ljw4010.github.io/tags/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

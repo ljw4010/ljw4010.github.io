@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>生活需要沉淀</title>
-    <link>http://ljw4010.github.io/</link>
+    <link>https://ljw4010.github.io/</link>
     <description>Recent content on 生活需要沉淀</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 24 Nov 2019 08:36:54 +0000</lastBuildDate>
     
-        <atom:link href="http://ljw4010.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://ljw4010.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>读书</title>
-      <link>http://ljw4010.github.io/post/du_shu/</link>
+      <link>https://ljw4010.github.io/post/du_shu/</link>
       <pubDate>Sun, 24 Nov 2019 08:36:54 +0000</pubDate>
       
-      <guid>http://ljw4010.github.io/post/du_shu/</guid>
+      <guid>https://ljw4010.github.io/post/du_shu/</guid>
       
         <description>
 
@@ -53,10 +53,10 @@
     
     <item>
       <title>golang 的文件锁操作</title>
-      <link>http://ljw4010.github.io/post/wen_jian_suo/</link>
+      <link>https://ljw4010.github.io/post/wen_jian_suo/</link>
       <pubDate>Sun, 10 Nov 2019 08:36:54 +0000</pubDate>
       
-      <guid>http://ljw4010.github.io/post/wen_jian_suo/</guid>
+      <guid>https://ljw4010.github.io/post/wen_jian_suo/</guid>
       
         <description>
 
@@ -139,10 +139,10 @@ how 参数指定 LOCK_NB 之后，goroutine 遇到已加锁的 Flock，不会阻
     
     <item>
       <title>隧道</title>
-      <link>http://ljw4010.github.io/post/sui_dao/</link>
+      <link>https://ljw4010.github.io/post/sui_dao/</link>
       <pubDate>Sat, 09 Nov 2019 08:36:54 -0700</pubDate>
       
-      <guid>http://ljw4010.github.io/post/sui_dao/</guid>
+      <guid>https://ljw4010.github.io/post/sui_dao/</guid>
       
         <description>
 
