@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +25,7 @@
 <meta name="author" content="ljw4010" />
   <meta name="description" content="golang 的文件锁操作 这篇文章给大家介绍一下 golang 的文件锁。我们在使用 golang 开发程序的时候，经常会出现多个 goroutine 操作同一个文件（或目录）的时候，如果不加锁，很容" />
 
-  <meta name="keywords" content="技术, 生活, 故事" />
+  <meta name="keywords" content="生活, 技术, 故事" />
 
 
 
@@ -71,7 +71,7 @@
 
 <meta itemprop="datePublished" content="2019-11-10T08:36:54&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-10T08:36:54&#43;00:00" />
-<meta itemprop="wordCount" content="740">
+<meta itemprop="wordCount" content="785">
 
 
 
@@ -110,36 +110,36 @@
         
           
           
-            <a class="menu-item-link" href="https://ljw4010.github.io/">主页</a>
+            <a class="menu-item-link" href="https://ljw4010.github.io/">Home</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://ljw4010.github.io/post/">文章</a>
+            <a class="menu-item-link" href="https://ljw4010.github.io/post/">Archives</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://ljw4010.github.io/tags/">标签</a>
+            <a class="menu-item-link" href="https://ljw4010.github.io/tags/">Tags</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://ljw4010.github.io/categories/">分类</a>
+            <a class="menu-item-link" href="https://ljw4010.github.io/categories/">Categories</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="https://www.baidu.com" rel="noopener" target="_blank">
-              外链
+            <a class="menu-item-link" href="https://gohugo.io" rel="noopener" target="_blank">
+              external-link
               
               <i class="iconfont">
                 <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -242,7 +242,7 @@
         
           
           
-            <a class="menu-item-link" href="https://ljw4010.github.io/">主页</a>
+            <a class="menu-item-link" href="https://ljw4010.github.io/">Home</a>
           
 
         
@@ -253,7 +253,7 @@
         
           
           
-            <a class="menu-item-link" href="https://ljw4010.github.io/post/">文章</a>
+            <a class="menu-item-link" href="https://ljw4010.github.io/post/">Archives</a>
           
 
         
@@ -264,7 +264,7 @@
         
           
           
-            <a class="menu-item-link" href="https://ljw4010.github.io/tags/">标签</a>
+            <a class="menu-item-link" href="https://ljw4010.github.io/tags/">Tags</a>
           
 
         
@@ -275,7 +275,7 @@
         
           
           
-            <a class="menu-item-link" href="https://ljw4010.github.io/categories/">分类</a>
+            <a class="menu-item-link" href="https://ljw4010.github.io/categories/">Categories</a>
           
 
         
@@ -286,8 +286,8 @@
         
           
           
-            <a class="menu-item-link" href="https://www.baidu.com" rel="noopener" target="_blank">
-              外链
+            <a class="menu-item-link" href="https://gohugo.io" rel="noopener" target="_blank">
+              external-link
               
               <i class="iconfont">
                 <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -329,9 +329,14 @@
           2019-11-10
         </time>
         
-        
+        <span class="more-meta"> 785 words </span>
+          <span class="more-meta"> 2 min read </span>
 
         
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
         
 
         
@@ -342,7 +347,7 @@
     
     
 <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
+  <h2 class="post-toc-title">Table of Contents</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
 <ul>
@@ -363,12 +368,18 @@
 <p>Flock 是对于整个文件的建议性锁（不强求 goroutine 遵守），如果一个 goroutine 在文件上获取了锁，那么其他 goroutine 是可以知道的。默认情况下，当一个 goroutine 将文件锁住，另外一个 goroutine 可以直接操作被锁住的文件，原因在于 Flock 只是用于检测文件是否被加锁，针对文件已经被加锁，另一个 goroutine 写入数据的情况，内核不会阻止这个 goroutine 的写入操作，也就是建议性锁的内核处理策略。</p>
 
 <p>#函数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">import &#34;syscall&#34;
 
-<pre><code>import &quot;syscall&quot;
-
-func Flock(fd int, how int) (err error)
-</code></pre>
-
+func Flock(fd int, how int) (err error)</pre></td></tr></table>
+</div>
+</div>
 <p>Flock 位于 syscall 包中，fd 参数指代文件描述符，how 参数指代锁的操作类型。</p>
 
 <p>how 主要的参数类型：</p>
@@ -379,51 +390,96 @@ LOCK_NB，遇到锁的表现，当采用排他锁的时候，默认 goroutine �
 LOCK_UN，释放锁；
 示例
 下面的例子来自于 NSQ，位于 nsq/internal/dirlock，用于实现对目录的加锁</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"><span class="c1">// +build !windows
+</span><span class="c1"></span>
+<span class="kn">package</span> <span class="nx">dirlock</span>
 
-<pre><code>// +build !windows
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;os&#34;</span>
+	<span class="s">&#34;syscall&#34;</span>
+<span class="p">)</span>
 
-package dirlock
+<span class="c1">// 定义一个 DirLock 的struct
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">DirLock</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">dir</span> <span class="kt">string</span>    <span class="c1">// 目录路径，例如 /home/XXX/go/src
+</span><span class="c1"></span>	<span class="nx">f</span>   <span class="o">*</span><span class="nx">os</span><span class="p">.</span><span class="nx">File</span>  <span class="c1">// 文件描述符
+</span><span class="c1"></span><span class="p">}</span>
 
-import (
-	&quot;fmt&quot;
-	&quot;os&quot;
-	&quot;syscall&quot;
-)
+<span class="c1">// 新建一个 DirLock
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">New</span><span class="p">(</span><span class="nx">dir</span> <span class="kt">string</span><span class="p">)</span> <span class="o">*</span><span class="nx">DirLock</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">DirLock</span><span class="p">{</span>
+		<span class="nx">dir</span><span class="p">:</span> <span class="nx">dir</span><span class="p">,</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
-// 定义一个 DirLock 的struct
-type DirLock struct {
-	dir string    // 目录路径，例如 /home/XXX/go/src
-	f   *os.File  // 文件描述符
-}
+<span class="c1">// 加锁操作
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">l</span> <span class="o">*</span><span class="nx">DirLock</span><span class="p">)</span> <span class="nf">Lock</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+	<span class="nx">f</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="nx">l</span><span class="p">.</span><span class="nx">dir</span><span class="p">)</span> <span class="c1">// 获取文件描述符
+</span><span class="c1"></span>	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">err</span>
+	<span class="p">}</span>
+	<span class="nx">l</span><span class="p">.</span><span class="nx">f</span> <span class="p">=</span> <span class="nx">f</span>
+	<span class="nx">err</span> <span class="p">=</span> <span class="nx">syscall</span><span class="p">.</span><span class="nf">Flock</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nf">Fd</span><span class="p">()),</span> <span class="nx">syscall</span><span class="p">.</span><span class="nx">LOCK_EX</span><span class="p">|</span><span class="nx">syscall</span><span class="p">.</span><span class="nx">LOCK_NB</span><span class="p">)</span> <span class="c1">// 加上排他锁，当遇到文件加锁的情况直接返回 Error
+</span><span class="c1"></span>	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;cannot flock directory %s - %s&#34;</span><span class="p">,</span> <span class="nx">l</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}</span>
 
-// 新建一个 DirLock
-func New(dir string) *DirLock {
-	return &amp;DirLock{
-		dir: dir,
-	}
-}
-
-// 加锁操作
-func (l *DirLock) Lock() error {
-	f, err := os.Open(l.dir) // 获取文件描述符
-	if err != nil {
-		return err
-	}
-	l.f = f
-	err = syscall.Flock(int(f.Fd()), syscall.LOCK_EX|syscall.LOCK_NB) // 加上排他锁，当遇到文件加锁的情况直接返回 Error
-	if err != nil {
-		return fmt.Errorf(&quot;cannot flock directory %s - %s&quot;, l.dir, err)
-	}
-	return nil
-}
-
-// 解锁操作
-func (l *DirLock) Unlock() error {
-	defer l.f.Close() // close 掉文件描述符
-	return syscall.Flock(int(l.f.Fd()), syscall.LOCK_UN) // 释放 Flock 文件锁
-}
-</code></pre>
-
+<span class="c1">// 解锁操作
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">l</span> <span class="o">*</span><span class="nx">DirLock</span><span class="p">)</span> <span class="nf">Unlock</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+	<span class="k">defer</span> <span class="nx">l</span><span class="p">.</span><span class="nx">f</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span> <span class="c1">// close 掉文件描述符
+</span><span class="c1"></span>	<span class="k">return</span> <span class="nx">syscall</span><span class="p">.</span><span class="nf">Flock</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nx">l</span><span class="p">.</span><span class="nx">f</span><span class="p">.</span><span class="nf">Fd</span><span class="p">()),</span> <span class="nx">syscall</span><span class="p">.</span><span class="nx">LOCK_UN</span><span class="p">)</span> <span class="c1">// 释放 Flock 文件锁
+</span><span class="c1"></span><span class="p">}</span></pre></td></tr></table>
+</div>
+</div>
 <p>#总结
 Flock 是建议性的锁，使用的时候需要指定 how 参数，否则容易出现多个 goroutine 共用文件的问题
 how 参数指定 LOCK_NB 之后，goroutine 遇到已加锁的 Flock，不会阻塞，而是直接返回错误</p>
@@ -436,11 +492,11 @@ how 参数指定 LOCK_NB 之后，goroutine 遇到已加锁的 Flock，不会阻
     
 <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">文章作者</span>
+    <span class="item-title">Author</span>
     <span class="item-content">ljw4010</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">上次更新</span>
+    <span class="item-title">LastMod</span>
     <span class="item-content">
       2019-11-10
       
@@ -448,7 +504,7 @@ how 参数指定 LOCK_NB 之后，goroutine 遇到已加锁的 Flock，不会阻
   </p>
   
   <p class="copyright-item">
-    <span class="item-title">许可协议</span>
+    <span class="item-title">License</span>
     <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
   </p>
 </div>
@@ -456,6 +512,23 @@ how 参数指定 LOCK_NB 之后，goroutine 遇到已加锁的 Flock，不会阻
 
     
     
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/wechat-qr-code.png">
+        <span>Wechat</span>
+      </label>
+    
+      <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/alipay-qr-code.png">
+        <span>Alipay</span>
+      </label>
+  </div>
+</div>
 
     <footer class="post-footer">
       
@@ -474,12 +547,12 @@ how 参数指定 LOCK_NB 之后，goroutine 遇到已加锁的 Flock，不会阻
 
             </i>
             <span class="prev-text nav-default">读书</span>
-            <span class="prev-text nav-mobile">上一篇</span>
+            <span class="prev-text nav-mobile">Prev</span>
           </a>
         
           <a class="next" href="/post/sui_dao/">
             <span class="next-text nav-default">隧道</span>
-            <span class="prev-text nav-mobile">下一篇</span>
+            <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">
               <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -494,6 +567,8 @@ how 参数指定 LOCK_NB 之后，goroutine 遇到已加锁的 Flock，不会阻
     </footer>
   </article>
 
+  
+  
   
   
 
@@ -523,7 +598,7 @@ how 参数指定 LOCK_NB 之后，goroutine 遇到已加锁的 Flock，不会阻
       <div class="icon-links">
   
   
-    <a href="mailto:ljw4010@sina.com" rel="me noopener" class="iconfont"
+    <a href="mailto:ljw4010@sina.cn" rel="me noopener" class="iconfont"
       title="email" >
       <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -598,7 +673,15 @@ how 参数指定 LOCK_NB 之后，goroutine 遇到已加锁的 Flock，不会阻
 
   
   
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
 
+  
+    <span>
+      国际 ICP备10000000号-1
+    </span>
   
 </div>
 
@@ -627,9 +710,40 @@ how 参数指定 LOCK_NB 之后，goroutine 遇到已加锁的 Flock，不会阻
 
 
 
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css"
+    integrity="sha384-BdGj8xC2eZkQaxoQ8nSLefg4AV4/AwB3Fj+8SUSo7pnKP6Eoy18liIKTPn9oBYNG"
+    crossorigin="anonymous">
+
+  
+  <script defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.js"
+    integrity="sha384-JiKN5O8x9Hhs/UE5cT5AAJqieYlOZbGT3CHws/y97o3ty4R7/O5poG9F3JoiOYw1"
+    crossorigin="anonymous"></script>
+
+  
+  <script defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+    crossorigin="anonymous" onload="renderMathInElement(document.body);">
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        
+      });
+    });
+  </script>
 
 
 
@@ -644,6 +758,8 @@ how 参数指定 LOCK_NB 之后，goroutine 遇到已加锁的 Flock，不会阻
 
 
 
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
